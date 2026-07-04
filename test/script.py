@@ -19,4 +19,4 @@ for filepath in current_dir.iterdir():#iterdir()This means "Give me everything i
 
     if filepath.is_file():# is_file()This means "Is this a file?"
        content=filepath.read_text(encoding='utf-8')# read_text()This means "Read the text content of this file." UTF-8 is a common way to encode text files. It can handle many different characters from different languages.
-       print (f"  Content of {filepath.name}:")
+       print (f"  Content of {filepath.name}: {content}")
