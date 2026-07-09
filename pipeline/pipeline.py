@@ -1,0 +1,14 @@
+import sys  
+import pandas as pd #default way of processing data
+#pandas is a powerful library in Python for data manipulation and analysis. It provides data structures like DataFrames and Series, which allow for efficient handling of structured data. In this code snippet, we are importing the pandas library and giving it the alias "pd" for easier reference throughout the script.
+print ('arguments:', sys.argv)#sys.argv is a list in Python, which contains the command-line arguments passed to the script. With the first argument being the script name itself and the rest being any additional arguments passed to the script.
+month=int(sys.argv[1])#Converting the first command-line argument to an integer and storing it in the variable day. This assumes that the user will provide a valid integer as the first argument when running the script.
+df=pd.DataFrame({"day":[1,2],"num_passengers":[3,4]})#Creating a simple DataFrame using the pandas library. The DataFrame has two columns, "A" and "B", with two rows of data. Column "A" contains the values 1 and 2, while column "B" contains the values 3 and 4. This is a basic example of how to create a DataFrame in pandas, which is a powerful tool for data manipulation and analysis in Python.
+df["month"]=month
+print(df.head())#Printing the first few rows of the DataFrame using the head() method. By default, head() displays the first five rows, but since our DataFrame only has two rows, it will display both rows. This is a common way to quickly inspect the contents of a DataFrame in pandas.
+df.to_parquet(f"output_math{month}.paraquet")#to_parquet() is a method in pandas that allows you to save a DataFrame to a Parquet file format. In this case, the DataFrame df is being saved to a file named "output_math{month}.paraquet", where {month} is replaced with the value of the month variable. Parquet is a columnar storage file format that is efficient for storing and querying large datasets.
+#rows=pd.DataFrame({"day":[1,2],"num_passengers":[3,4]})#Creating another DataFrame named rows with the same structure as the previous one. This DataFrame also has two columns, "A" and "B", with two rows of data. Column "A" contains the values 1 and 2, while column "B" contains the values 3 and 4. This is another example of how to create a DataFrame in pandas.
+
+#print(rows.head())#Printing the first few rows of the rows DataFrame using the head() method. Similar to the previous print statement, this will display both rows of the DataFrame since it only contains two rows. This allows us to verify the contents of the rows DataFrame.
+
+print (f'hello pipeline,month={month}')#Printing a formatted string that includes the value of the month variable. This will display a message indicating the month that was passed as a command-line argument.
